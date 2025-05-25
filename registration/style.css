@@ -1,0 +1,114 @@
+:root {
+    --color1: #52339A;
+    --color2: #05B1B1;
+    --button-active: #08dfdf;
+    --warning: red;
+}
+
+@font-face {
+    font-family: 'Sansation-Regular';
+    src: url('../fonts/Sansation-Regular.ttf') format('truetype');
+    font-style: normal;
+    font-weight: normal;
+}
+
+body {
+    font-family: 'Sansation-Regular';
+}
+
+form {
+    border: 3px solid var(--color1);
+    border-radius: 12px;
+    height: fit-content;
+    width: fit-content;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    margin: auto;
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    padding: 20px 20px;
+    width: 400px;
+}
+
+h1 {
+    color: var(--color1);
+    font-size: 30pt;
+    text-align: center;
+}
+
+#full-notice {
+    font-size: 26pt;
+    color: var(--warning);
+    text-align: center;
+}
+
+.inputs {
+    display: flex;
+    flex-flow: column nowrap;
+    gap: 6px;
+}
+
+.input-div {
+    display: flex;
+    flex-flow: column nowrap;
+}
+
+
+.input-div span {
+    color: var(--warning);
+}
+
+.input-div label {
+    color: var(--color1);
+    margin-bottom: 4px;
+    font-size: 14pt;
+}
+
+.input-div input {
+    background-color: #fff;
+    border: 2px solid var(--color2);
+    border-radius: 4px;
+    font-size: 16pt;
+    width: 300px;
+    color: var(--color2);
+    padding: 3px 0 3px 14px;
+}
+
+.input-div input:focus {
+    outline: none;
+}
+
+.go {
+    cursor: pointer;
+    background-color: var(--color1);
+    border: none;
+    border-radius: 6px;
+    padding: 10px 40px;
+    margin-top: 30px;
+    color: white;
+    font-size: 20pt;
+}
+
+.go:hover {
+    transition: .2s;
+    background-color: var(--color2);
+}
+
+.go:active {
+    transition: 0s;
+    background-color: var(--button-active);
+}
+
+form a {
+    margin-top: 20px;
+    text-decoration: none;
+    color: var(--color1);
+}
+
+form a:hover {
+    text-decoration: underline;
+}
