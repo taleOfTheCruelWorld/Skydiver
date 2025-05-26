@@ -1,12 +1,14 @@
 let warnings = 0;
 
 function borderRecolor(input) {
+    if (input.style.borderColor != 'var(--warning)') {
+        warnings++;
+    }
     input.style.borderColor = 'var(--warning)';
-    warnings++;
 }
 
 function borderRecolorBack(input) {
-    if (input.style.border == 'var(--warning)') {
+    if (input.style.borderColor == 'var(--warning)') {
         warnings--;
     }
     input.style.borderColor = 'var(--color2)'
@@ -93,22 +95,16 @@ phone.addEventListener('keydown', phoneHelper)
 phone.addEventListener('change', checkPhone);
 
 function sendForm() {
-    let isFull = true;
     if (phone.value == '') {
         borderRecolor(phone);
-        isFull = false;
     }
     if (password.value == '') {
         borderRecolor(password);
-        isFull = false;
         password.addEventListener('change', () => {
             borderRecolorBack(password)
         });
     }
-    if (warnings != 0) {
-        return;
-    }
-    if (isFull) {
+    if (warnings > 0) {
         return;
     }
 }

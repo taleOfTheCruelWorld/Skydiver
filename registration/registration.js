@@ -19,12 +19,14 @@ let passwordRepeatP = document.getElementById('password-repeat-p');
 let warnings = 0;
 
 function borderRecolor(input) {
+    if (input.style.borderColor != 'var(--warning)') {
+        warnings++;
+    }
     input.style.borderColor = 'var(--warning)';
-    warnings++;
 }
 
 function borderRecolorBack(input) {
-    if (input.style.border == 'var(--warning)') {
+    if (input.style.borderColor == 'var(--warning)') {
         warnings--;
     }
     input.style.borderColor = 'var(--color2)'
@@ -296,43 +298,31 @@ passwordRepeat.addEventListener('change', comparePasswords);
 
 let go = document.getElementById('go');
 function sendForm() {
-    let isFull = true;
     if (name.value == '') {
         borderRecolor(name);
-        isFull = false;
     }
     if (lastname.value == '') {
         borderRecolor(lastname);
-        isFull = false;
     }
     if (patronym.value == '') {
         borderRecolor(patronym);
-        isFull = false;
     }
     if (passport.value == '') {
         borderRecolor(passport);
-        isFull = false;
     }
     if (phone.value == '') {
         borderRecolor(phone);
-        isFull = false;
     }
     if (year.value == '') {
         borderRecolor(year);
-        isFull = false;
     }
     if (password.value == '') {
         borderRecolor(password);
-        isFull = false;
     }
     if (passwordRepeat.value == '') {
         borderRecolor(passwordRepeat);
-        isFull = false;
     }
-    if (warnings != 0) {
-        return;
-    }
-    if (isFull) {
+    if (warnings > 0) {
         return;
     }
 }
